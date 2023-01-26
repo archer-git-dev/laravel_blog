@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,3 +15,11 @@ use App\Http\Controllers\IndexController;
 */
 
 Route::get('/', [IndexController::class, 'index']);
+
+Route::controller(UserController::class)->group(function() {
+    Route::get('/users', 'index');
+    Route::get('/users/{user:id}', 'show');
+});
+
+
+
