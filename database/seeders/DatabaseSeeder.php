@@ -24,3 +24,4 @@ class DatabaseSeeder extends Seeder
         Article::factory(100)->create();
     }
 }
+

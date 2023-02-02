@@ -26,6 +26,8 @@ class CreateArticlesTable extends Migration
                 ->cascadeOnDelete()
                 ->cascadeOnUpdate();
 
+            // ->cascadeOnDelete() - если пользователя не будет (удален user_id). То удалятся всего его записи.
+
             $table->timestamps();
         });
     }

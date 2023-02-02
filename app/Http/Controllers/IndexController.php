@@ -7,13 +7,22 @@ use Illuminate\Http\Request;
 class IndexController extends Controller
 {
     public function  index() {
-
-        $users = [
-            ['id' => 1, 'username' => 'Archer'],
-            ['id' => 2, 'username' => 'Bob'],
-            ['id' => 3, 'username' => 'Guf'],
-        ];
-
-        return view('index', compact('users'));
+        return view('home');
     }
+
+    public function  blog() {
+        return view('blog');
+    }
+
+    public function  about() {
+        return view('about');
+    }
+
+    public function  contact() {
+        return view('contact');
+    }
+    public function  postDetails() {
+        return view('post-details');
+    }
+
 }

@@ -14,12 +14,15 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::get('/', [IndexController::class, 'index']);
-
-Route::controller(UserController::class)->group(function() {
-    Route::get('/users', 'index');
-    Route::get('/users/{user:id}', 'show');
+Route::controller(IndexController::class)->group(function () {
+    Route::get('/', 'index');
+    Route::get('/blog', 'blog');
+    Route::get('/about', 'about');
+    Route::get('/contact', 'contact');
+    Route::get('/post-details', 'postDetails');
 });
+
+
 
 
 
