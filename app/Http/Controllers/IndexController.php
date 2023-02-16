@@ -25,4 +25,12 @@ class IndexController extends Controller
         return view('post-details');
     }
 
+    public function  signin() {
+        return view('signin');
+    }
+
+    public function  signup() {
+        return view('signup');
+    }
+
 }

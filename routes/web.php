@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
@@ -15,11 +16,24 @@ use App\Http\Controllers\UserController;
 */
 
 Route::controller(IndexController::class)->group(function () {
-    Route::get('/', 'index');
-    Route::get('/blog', 'blog');
-    Route::get('/about', 'about');
-    Route::get('/contact', 'contact');
-    Route::get('/post-details', 'postDetails');
+    Route::get('/', 'index')->name('home');;
+    Route::get('/blog', 'blog')->name('blog');
+    Route::get('/about', 'about')->name('about');
+    Route::get('/contact', 'contact')->name('contact');
+    Route::get('/post-details', 'postDetails')->name('post-details');
+    // Ссылки для регистрации и авторизации
+    Route::get('/signin', 'signin')->name('signin');
+    Route::get('/signup', 'signup')->name('signup');
+});
+
+Route::controller(AuthController::class)->group(function() {
+
+    // Обработчики форм
+    Route::post('/signup', 'signup')->name('register');
+    Route::post('/signin', 'signin')->name('login');
+
+    // Выход из профиля (logout)
+    Route::get('/logout', 'logout')->name('logout');
 });
 
 
